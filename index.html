@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Audit Readiness Check</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,6 +55,17 @@ button { font: inherit; color: inherit; }
 button:focus-visible, summary:focus-visible, textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
 .wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; }
+
+
+/* Suite navigation */
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; padding-top: 1rem; }
+.nav .lbl { font: 500 .75rem var(--font-mono); color: var(--muted); letter-spacing: .04em; margin-right: .3rem; }
+.nav a { color: var(--fg); text-decoration: none; border: 1px solid var(--line); background: var(--surface-2); border-radius: 999px; padding: .25rem .8rem; font-size: .875rem; }
+.nav a:hover { border-color: var(--gold); }
+.nav a[aria-current="page"] { background: var(--gold); color: var(--on-gold); border-color: var(--gold); font-weight: 600; }
+.nav a:focus-visible, .xlink a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.xlink { margin: 0; color: var(--muted); font-size: .9375rem; }
+.xlink a { color: var(--gold); }
 
 /* Sticky readiness bar */
 .bar {
@@ -186,6 +196,8 @@ textarea#fallback { width: 100%; min-height: 8rem; margin-top: .75rem; backgroun
 </style>
 
 <div class="wrap">
+  <nav class="nav" aria-label="GRC tools"><span class="lbl">ISO 27001 TOOLS</span><a href="./" aria-current="page">Readiness check</a><a href="soa-builder.html">SoA builder</a></nav>
+
   <div class="bar" aria-live="polite">
     <strong id="barScore">0%</strong>
     <span id="barBand">Readiness</span>
@@ -263,6 +275,7 @@ textarea#fallback { width: 100%; min-height: 8rem; margin-top: .75rem; backgroun
       <span class="status" id="copyStatus" role="status"></span>
     </div>
     <textarea id="fallback" readonly hidden aria-label="Action list text"></textarea>
+    <p class="xlink" style="margin-top:1rem">Next step: record which controls apply and why in the <a href="soa-builder.html">Statement of Applicability builder</a>.</p>
   </section>
 
   <section class="group">
@@ -613,5 +626,3 @@ textarea#fallback { width: 100%; min-height: 8rem; margin-top: .75rem; backgroun
   update();
 })();
 </script>
-
-</body></html>
